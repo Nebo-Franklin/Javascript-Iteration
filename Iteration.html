@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iteration</title>
+</head>
+<body>
+    <h3>Iteration methods</h3>
+    <p>is another way</p>
+
+    <pre id="ite"></pre>
+    <p id="itera"></p>
+
+    <p>foreach() where a method calls a function (i.e a callbaack function) once for each array element is executed</p>
+
+    <script>
+        let txt = "";
+        var numbers = [45, 4, 9, 16, 25];
+        document.querySelector('#ite').innerHTML = "Here is list of array " + numbers + '<br>';
+
+        numbers.forEach(myfunc);
+        document.getElementById('itera').innerHTML = txt;
+        // for the callback function we use definitions
+        function myfunc(value, index, array){
+            txt = txt + value + '<br>';
+        } 
+        // when did we assign a value to txt?
+       /* var numbers = [45, 4, 9, 16, 25];
+        let txt = numbers.forEach(myTxt);
+        document.getElementById('ite').innerHTML = numbers;
+        document.getElementById('itera').innerHTML = txt;
+        function myTxt(value, index, array){
+            return txt + '<br>';
+        }*/
+        
+    </script>
+
+    <h3>Array.map</h3>
+    <ul>
+        <li>this creates a new array by performing</li>
+        <li>it does not execute</li>
+        <li>'it does not change</li>
+
+    </ul>
+
+    <p id="mp"></p>
+    <p id="map"></p>
+    <pre><i><strong>when a callback function uses only the value parameter, the index and array parameters can be omitted</strong></i></pre>
+
+    <script>
+        // here is for Array.map()
+        var number = [45, 4, 9, 16, 25];
+        let new_number = number.map(myMap);
+
+        document.querySelector('#mp').innertext = number;
+
+        document.getElementById('map').innerHTML= new_number;
+
+        function myMap(value, index, array){
+            return value * 2;
+        }
+    </script>
+
+    <h3>Array.filter()</h3>
+    <p>the filter() method creates a new array method that pass a test</p>
+    <p id="ft">this example creates a new array from the elements with a value larger than 18:</p>
+    <strong>this function does not use the index and array parameters, so they can be omitted</strong>
+
+    <script>
+        // here is for the array.filter()
+        const Number = [45, 4, 9, 16, 25, 18]
+        let over18 = Number.filter(myAf);
+
+        document.getElementById('ft').innerHTML = over18;
+
+        function myAf(value, index, array){
+            // return value > 18;
+            // return value < 18;
+            return value <= 18;
+        }
+    </script>
+    <h3>Array.reduce()</h3>
+    <p>this function on each array element to produce(reduce it to) a single value</p>
+
+    <strong>does not reduce the original array, this method works from  left-to-right in the array</strong>
+    <p id="rd"></p>
+
+    <script>
+        let NUMBER = [45, 4, 9, 16, 25, 1]
+        var sum = NUMBER.reduce(myRD);
+
+        document.getElementById('rd').innerHTML = "the total sum is: " + sum;
+
+        function myRD(total, value, index, array){
+            return total + value;
+        }
+
+    </script>
+
+    <h3>Array.Every()</h3>
+    <p>this function checks if all array values pass a test but return Boolean</p>
+    <!-- <button onclick="myEv">click</button> -->
+    <p id="ev"></p>
+
+    <script>
+        let inec = [45, 4, 9, 16, 25,];
+        let voters_ov18 = inec.every(myEv);
+
+        document.getElementById('ev').innerHTML = "voters are not up to 18 years that voted " + voters_ov18;
+
+        function myEv(value, index, array){
+            // return value > 18;
+            return value => 16
+            // return inec = Math.random()
+        }
+    </script>
+    <h3>Array.indexof()</h3>
+    <p>this is used to search an array in an element value and returns its position remember first item is always 0</p>
+    <pre id="idx"></pre>
+    <script>
+        // here for Array.indexof() lastindexof()
+        let team = ['cackahal', 'johnson', 'frank', 'joy']
+        var girl = team.indexOf('joy');
+
+        document.getElementById('idx').innerHTML = "where we are looking for the position of the girl " + girl;
+    </script>
+
+    <h3>Array.lastindexof()</h3>
+    <p>this returns the position of the last occurence of the specified elements also takes parameters item (required) and starts (is optional) this is also called the negative index</p>
+    <pre id="lidx"></pre>
+    <script>
+        let Team = ['cackahal', 'johnson', 'frank', 'joy']
+        var Girl = Team.lastIndexOf('joy');
+
+        document.getElementById('lidx').innerHTML = "to find the position " + (Girl);
+// console.log(typeof(girl))
+    </script>
+    <p id="image">
+        <img  src="app.jpg" alt="" style="height: 100px;width: 20%;margin: 30px;">
+    </p>
+    <!-- <p id="picture" style="background-color: aqua;"> -->
+        <!-- <img src="avatar_g2.jpg" alt="" style="height: 100px;width: 20%;margin: 30px;"> -->
+    <!-- </p> -->
+    <script>
+        var replace = document.getElementById('picture') 
+        setTimeout (myImg, 5000);
+        function myImg(){
+            document.getElementById('image').innerHTML = '<strong> i am still here!!! </strong>';
+        }
+        /*var first = document.getElementById('image');
+        var second = document.getElementById('picture');
+
+        setTimeout (myImg, 3000){
+            if(duration => 3000){
+                first.style.background = second.style.backgroundColor;
+            }else{
+                first.style.display = none;
+            }
+        }*/
+    </script>
+</body>
+</html>
